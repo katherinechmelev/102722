@@ -25,22 +25,23 @@ public class Bill {
 
    */
     public boolean addTip() {
-        if (!tipAdded){
+        if (tipAdded) {
+            return false;
+        }else{
             if (customers >= 8){
                 totalCost += 0.30*totalCost;
-                return true;
+
             }else if (customers >=4){
                 totalCost += 0.27*totalCost;
-                return true;
+
             }else if (customers >= 2){
                 totalCost += 0.25*totalCost;
-                return true;
+
             }else{
                 totalCost += 0.2*totalCost;
-                return true;
             }
-        }else{
-            return false;
+            tipAdded = true;
+            return true;
         }
     }
 
